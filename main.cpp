@@ -38,7 +38,7 @@ PIMAGE_IMPORT_DESCRIPTOR GetBaseToImportDirectory(HANDLE baseAddress) {
 	IMAGE_NT_HEADERS64 *ntHeader = (IMAGE_NT_HEADERS64 *) ((BYTE *) baseAddress + *((DWORD *) ((BYTE *) baseAddress + 0x3c)));
 	IMAGE_OPTIONAL_HEADER64 *optionalHeader = (IMAGE_OPTIONAL_HEADER64 *) &ntHeader->OptionalHeader;
 #else
-	IMAGE_NThEADERS32 *ntHeader = (IMAGE_NThEADERS32 *) (((BYTE *) baseAddress) + *((DWORD *) ((BYTE *) baseAddress + 0x3c)));
+	IMAGE_NT_HEADER32 *ntHeader = (IMAGE_NT_HEADER32 *) (((BYTE *) baseAddress) + *((DWORD *) ((BYTE *) baseAddress + 0x3c)));
 	IMAGE_OPTIONAL_HEADER32 *optionalHeader = (IMAGE_OPTIONAL_HEADER32 *) &ntHeader->OptionalHeader;
 #endif
 
